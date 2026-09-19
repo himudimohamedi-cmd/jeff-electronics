@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jeff Electronics – China Ndogo | Electronics na Accessories">
+<title>Jeff Electronics | China Ndogo</title>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <span class="logo">JE</span>
+      <span class="brand-text"><b>JEFF</b><b>ELECTRONICS</b><small>China Ndogo</small></span>
+    </a>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menyu">☰</button>
+    <nav id="navMenu">
+      <a href="#home">Nyumbani</a><a href="#bidhaa">Bidhaa</a><a href="#kuhusu">Kuhusu</a><a href="#huduma">Huduma</a><a href="#mawasiliano">Mawasiliano</a>
+      <a class="wa-mini" href="https://wa.me/255768384919" target="_blank">WhatsApp 0768 384 919</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-slider">
+    <div class="slide active" style="--bg:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1600&q=85')"></div>
+    <div class="slide" style="--bg:url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=85')"></div>
+    <div class="slide" style="--bg:url('https://images.unsplash.com/photo-1609592424631-0f5f0d1d1b99?auto=format&fit=crop&w=1600&q=85')"></div>
+    <div class="slide" style="--bg:url('https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=1600&q=85')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-copy">
+      <span class="pill">⚡ TEKNOLOJIA YA KISASA KWAKO</span>
+      <h1>Vifaa vya <span>Electronics</span><br>na Accessories</h1>
+      <p>Karibu Jeff Electronics – China Ndogo. Tunakuletea bidhaa mbalimbali za electronics kwa bei nzuri na huduma ya kuaminika.</p>
+      <div class="hero-actions">
+        <a class="wa-btn" href="https://wa.me/255768384919?text=Habari%20Jeff%20Electronics%2C%20naomba%20kuulizia%20bidhaa." target="_blank">💬 WhatsApp 0768 384 919</a>
+        <a class="ghost-btn" href="#bidhaa">Angalia bidhaa ↓</a>
+      </div>
+      <div class="trust"><span>✓ Ubora</span><span>✓ Bei Nafuu</span><span>✓ Huduma Bora</span></div>
+    </div>
+  </div>
+  <div class="slider-controls">
+    <button onclick="prevSlide()">‹</button><div id="dots"></div><button onclick="nextSlide()">›</button>
+  </div>
+  <div class="slider-label"><b id="slideTitle">Simu & Tablets</b><small id="slideNo">01 / 04</small></div>
+</section>
+
+<section class="quick">
+ <div class="container quick-grid">
+  <div><strong>01</strong><span>Bidhaa mbalimbali</span></div>
+  <div><strong>02</strong><span>Bei rafiki</span></div>
+  <div><strong>03</strong><span>Huduma ya haraka</span></div>
+  <div><strong>04</strong><span>Wasiliana WhatsApp</span></div>
+ </div>
+</section>
+
+<section id="bidhaa" class="section products">
+ <div class="container">
+  <div class="section-head"><div><span class="eyebrow">UNACHOHITAJI</span><h2>Bidhaa zetu</h2></div><p>Bidhaa hubadilika kulingana na stock. Tuandikie WhatsApp kupata bidhaa zilizopo sasa.</p></div>
+  <div class="product-grid">
+   <article class="product-card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=85" alt="Simu"><div><span>Electronics</span><h3>Simu & Tablets</h3><a href="https://wa.me/255768384919?text=Nahitaji%20Simu%20au%20Tablet" target="_blank">Ulizia WhatsApp →</a></div></article>
+   <article class="product-card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85" alt="Headphones"><div><span>Audio</span><h3>Headphones & Earphones</h3><a href="https://wa.me/255768384919?text=Nahitaji%20Headphones%20au%20Earphones" target="_blank">Ulizia WhatsApp →</a></div></article>
+   <article class="product-card"><img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=800&q=85" alt="Accessories"><div><span>Accessories</span><h3>Chargers & Cables</h3><a href="https://wa.me/255768384919?text=Nahitaji%20Charger%20au%20Cable" target="_blank">Ulizia WhatsApp →</a></div></article>
+   <article class="product-card"><img src="https://images.unsplash.com/photo-1609592424631-0f5f0d1d1b99?auto=format&fit=crop&w=800&q=85" alt="Smart devices"><div><span>Smart Tech</span><h3>Smart Watches</h3><a href="https://wa.me/255768384919?text=Nahitaji%20Smart%20Watch" target="_blank">Ulizia WhatsApp →</a></div></article>
+  </div>
+ </div>
+</section>
+
+<section id="kuhusu" class="section about">
+ <div class="container about-grid">
+  <div class="about-photo"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85" alt="Duka la electronics"><div class="photo-badge"><b>JE</b><span>Jeff Electronics</span></div></div>
+  <div class="about-copy"><span class="eyebrow">KUHUSU JEFF ELECTRONICS</span><h2>Teknolojia nzuri,<br><span>bei inayofikika.</span></h2><p>Tunatoa electronics na accessories mbalimbali kwa wateja wanaotafuta bidhaa nzuri, bei nafuu na huduma inayojali mahitaji yao.</p>
+   <div class="features"><div><b>✓</b><span>Bidhaa za aina mbalimbali</span></div><div><b>✓</b><span>Bei nafuu na ushindani</span></div><div><b>✓</b><span>Huduma ya haraka</span></div><div><b>✓</b><span>Ushauri kabla ya kununua</span></div></div>
+   <a class="dark-btn" href="#mawasiliano">Wasiliana nasi →</a>
+  </div>
+ </div>
+</section>
+
+<section id="huduma" class="section services">
+ <div class="container"><div class="section-head center"><div><span class="eyebrow">HUDUMA</span><h2>Tunachokufanyia</h2></div></div>
+ <div class="service-grid">
+  <div class="service"><i>▣</i><h3>Electronics</h3><p>Simu, tablets na vifaa vingine vya teknolojia.</p></div>
+  <div class="service"><i>◉</i><h3>Audio</h3><p>Headphones, earphones, speakers na vifaa vya sauti.</p></div>
+  <div class="service"><i>⚡</i><h3>Accessories</h3><p>Chargers, cables, power banks na accessories.</p></div>
+  <div class="service"><i>⌚</i><h3>Smart Devices</h3><p>Smart watches na vifaa vya kisasa.</p></div>
+ </div></div>
+</section>
+
+<section class="cta"><div class="container cta-box"><div><span class="eyebrow">UNA HITAJI BIDHAA?</span><h2>Tuandikie sasa WhatsApp</h2><p>Ulizia stock, bei au bidhaa unayotafuta.</p></div><a class="yellow-btn" href="https://wa.me/255768384919?text=Habari%20Jeff%20Electronics%2C%20ninaulizia%20bidhaa." target="_blank">0768 384 919 ↗</a></div></section>
+
+<section id="mawasiliano" class="contact">
+ <div class="container"><div class="section-head"><div><span class="eyebrow">MAWASILIANO</span><h2>Karibu kwetu</h2></div></div>
+ <div class="contact-grid">
+  <div><span>💬</span><small>WHATSAPP / SIMU</small><strong>0768 384 919</strong><a href="https://wa.me/255768384919" target="_blank">Tuma ujumbe →</a></div>
+  <div><span>⌖</span><small>MAHALI</small><strong>China Ndogo</strong><p>Dar es Salaam</p></div>
+  <div><span>◷</span><small>MUDA WA KAZI</small><strong>Jumatatu – Jumapili</strong><p>08:00 AM – 09:00 PM</p></div>
+ </div></div>
+</section>
+</main>
+
+<footer><div class="container footer"><a class="brand" href="#home"><span class="logo">JE</span><span class="brand-text"><b>JEFF ELECTRONICS</b><small>China Ndogo</small></span></a><p>© <span id="year"></span> Jeff Electronics – China Ndogo</p><div class="social">WhatsApp • Facebook • Instagram</div></div></footer>
+<a class="floating-wa" href="https://wa.me/255768384919" target="_blank" aria-label="WhatsApp">◉</a>
+<script src="script.js"></script>
+</body></html>

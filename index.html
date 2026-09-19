@@ -1,52 +1,92 @@
 <!doctype html>
 <html lang="sw">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JEFF ELECTRONICS | China Ndogo</title>
-<meta name="description" content="JEFF ELECTRONICS - Simu, accessories, audio, smart watches na electronics. China Ndogo.">
-<meta name="keywords" content="JEFF Electronics, electronics Tanzania, China Ndogo, simu, headphones, smart watch, charger, accessories">
-<meta name="theme-color" content="#c40000">
-<meta property="og:title" content="JEFF ELECTRONICS | China Ndogo">
-<meta property="og:description" content="Electronics na accessories. Wasiliana nasi WhatsApp 0768 384 919.">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JEFF ELECTRONICS | China Ndogo — Electronics Tanzania</title>
+  <meta name="description" content="JEFF ELECTRONICS — simu, smart watches, audio, chargers, accessories na electronics. China Ndogo, Tanzania. Wasiliana nasi WhatsApp 0768 384 919.">
+  <meta name="theme-color" content="#e10600">
+  <link rel="preconnect" href="https://api.github.com">
+  <link rel="preconnect" href="https://raw.githubusercontent.com">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="topbar">
-  <a class="brand" href="#home"><span>JEFF</span><small>ELECTRONICS • CHINA NDOGO</small></a>
-  <button class="menu" id="menuBtn" aria-label="Fungua menu">☰</button>
-  <nav id="nav"><a href="#home">Home</a><a href="#products">Bidhaa</a><a href="#about">Kuhusu</a><a href="#contact">Mawasiliano</a></nav>
+  <a class="brand" href="#home" aria-label="JEFF ELECTRONICS home">
+    <span class="brand-mark">J</span>
+    <span><b>JEFF</b><small>ELECTRONICS</small></span>
+  </a>
+  <nav id="nav">
+    <a href="#home">Nyumbani</a><a href="#products">Bidhaa</a><a href="#services">Huduma</a><a href="#about">Kuhusu</a><a href="#contact">Mawasiliano</a>
+  </nav>
+  <a class="nav-wa" href="https://wa.me/255768384919?text=Habari%20JEFF%20ELECTRONICS%2C%20naomba%20kuulizia%20bidhaa." target="_blank">WhatsApp</a>
+  <button class="hamb" id="hamb" aria-label="Fungua menu">☰</button>
 </header>
 
 <main>
-<section class="hero" id="home">
-  <div class="hero-grid" id="heroGrid"></div>
+<section id="home" class="hero">
+  <div class="hero-media" id="heroMedia"></div>
   <div class="hero-shade"></div>
   <div class="hero-content">
-    <div class="eyebrow">CHINA NDOGO • ELECTRONICS</div>
-    <h1><span class="jeff-word" id="jeffWord">JEFF</span><br><b>ELECTRONICS</b></h1>
-    <p>Simu, accessories, audio, smart watches na electronics mbalimbali.</p>
-    <div class="hero-actions"><a class="btn primary" href="#products">Angalia bidhaa</a><a class="btn whatsapp" href="https://wa.me/255768384919" target="_blank" rel="noopener">WhatsApp 0768 384 919</a></div>
-    <div class="stats"><span><b id="count">0</b>+ bidhaa</span><span>📦 Bidhaa mpya</span><span>📱 China Ndogo</span></div>
+    <div class="eyebrow"><span></span> CHINA NDOGO • TANZANIA</div>
+    <h1>TECHNOLOGY<br><em>INAISHI HAPA.</em></h1>
+    <p>Electronics za kisasa, accessories na huduma ya haraka. Chagua bidhaa, tuma ombi WhatsApp, na pata majibu bila kuzunguka.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#products">Tazama bidhaa <span>↗</span></a>
+      <a class="btn ghost" href="https://wa.me/255768384919?text=Habari%20JEFF%20ELECTRONICS%2C%20nimefika%20kwenye%20website." target="_blank">Ongea nasi</a>
+    </div>
+    <div class="hero-proof"><b id="heroCount">500+</b><span>visuals za electronics</span><i></i><b>24/7</b><span>WhatsApp inquiries</span></div>
+  </div>
+  <div class="hero-progress"><span id="heroProgress"></span></div>
+  <div class="hero-dots" id="heroDots"></div>
+</section>
+
+<section class="ticker"><div id="tickerTrack"></div></section>
+
+<section id="products" class="catalog section">
+  <div class="section-head">
+    <div><span class="kicker">CATALOG ENGINE</span><h2>Chagua. <em>Tafuta.</em> Uliza.</h2></div>
+    <div class="countbox"><strong id="realCount">0</strong><span>items</span></div>
+  </div>
+  <div class="catalog-tools">
+    <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Tafuta simu, watch, earphones, charger..."></label>
+    <div class="filters" id="filters"></div>
+  </div>
+  <div class="resultline"><span id="resultText">Tunapakia catalog...</span><button id="clearSearch" class="text-btn">Futa filter</button></div>
+  <div class="product-grid" id="productGrid"></div>
+  <button class="loadmore" id="loadMore">Onyesha zaidi <span>↓</span></button>
+</section>
+
+<section id="services" class="services section dark">
+  <div class="section-head"><div><span class="kicker">WHY JEFF</span><h2>Si picha tu.<br><em>Ni mfumo wa kuuza.</em></h2></div></div>
+  <div class="service-grid">
+    <article><span>01</span><h3>Search ya haraka</h3><p>Tafuta bidhaa kwa jina au category bila kupoteza muda kwenye catalog ndefu.</p></article>
+    <article><span>02</span><h3>WhatsApp inquiry</h3><p>Kila bidhaa ina kitufe cha kuulizia moja kwa moja kwa WhatsApp.</p></article>
+    <article><span>03</span><h3>Catalog inayokua</h3><p>Ongeza picha kwenye folder la products GitHub na website inazisoma moja kwa moja.</p></article>
+    <article><span>04</span><h3>Mobile first</h3><p>Muundo umeundwa kwa simu kwanza, lakini unaonekana premium kwenye desktop pia.</p></article>
   </div>
 </section>
 
-<section class="section" id="products">
-  <div class="section-head"><div><span class="eyebrow red">STORE</span><h2>Bidhaa zetu</h2><p>Tafuta bidhaa kwa jina au aina. Picha zote kutoka kwenye folder lako la <b>products</b>.</p></div></div>
-  <div class="tools"><div class="search"><span>⌕</span><input id="search" type="search" placeholder="Tafuta simu, charger, headphones..." autocomplete="off"></div><div class="chips" id="chips"></div></div>
-  <div id="status" class="status">Inapakia bidhaa...</div>
-  <div class="products" id="productGrid"></div>
-  <button id="loadMore" class="more" hidden>Onyesha zaidi</button>
+<section class="statement">
+  <div class="statement-bg"></div>
+  <div class="statement-inner"><span>JEFF ELECTRONICS</span><h2>USIANGALIE<br><em>TECHNOLOGY.</em><br>ITUMIE.</h2></div>
 </section>
 
-<section class="banner"><div><span class="eyebrow">JEFF</span><h2>Unatafuta electronics?</h2><p>Tuma jina la bidhaa WhatsApp na tutakujibu.</p></div><a class="btn whatsapp" href="https://wa.me/255768384919?text=Habari%20JEFF%20ELECTRONICS%2C%20naomba%20kuuliza%20kuhusu%20bidhaa." target="_blank" rel="noopener">Uliza WhatsApp</a></section>
+<section id="about" class="about section">
+  <div class="about-copy"><span class="kicker">KUHUSU SISI</span><h2>China Ndogo.<br><em>Big technology energy.</em></h2><p>JEFF ELECTRONICS inaleta experience ya electronics kwenye mtandao: bidhaa zinaonekana kwa mpangilio, zinatafutika, na mteja anaweza kuanza mazungumzo mara moja.</p><div class="about-stat"><b>TZ</b><span>Huduma kwa wateja Tanzania</span></div></div>
+  <div class="about-card"><div class="about-glow"></div><div class="about-logo">J</div><strong>JEFF</strong><small>ELECTRONICS</small><span>CHINA NDOGO</span></div>
+</section>
 
-<section class="section about" id="about"><div class="about-card"><div class="about-art"><div class="pulse">JEFF</div><span>ELECTRONICS</span></div><div><span class="eyebrow red">KUHUSU SISI</span><h2>JEFF ELECTRONICS</h2><p>Tunakuonyesha bidhaa zako za electronics moja kwa moja kwenye website. Mfumo huu unasoma picha zilizopo kwenye folder <b>products</b> ya GitHub, hivyo ukiongeza picha mpya zinaweza kuonekana bila kutengeneza card moja moja.</p><div class="ticks"><span>✓ Simu & accessories</span><span>✓ Audio & headphones</span><span>✓ Smart watches</span><span>✓ Chargers & gadgets</span></div></div></div></section>
-
-<section class="contact" id="contact"><div><span class="eyebrow">WASILIANA NASI</span><h2>JEFF ELECTRONICS</h2><p>China Ndogo</p></div><a class="phone" href="tel:+255768384919">0768 384 919</a><a class="btn whatsapp" href="https://wa.me/255768384919" target="_blank" rel="noopener">Fungua WhatsApp</a></section>
+<section id="contact" class="contact section">
+  <div><span class="kicker">READY WHEN YOU ARE</span><h2>Unatafuta<br><em>kitu gani?</em></h2><p>Tuma jina la bidhaa au picha yake. Tutumie WhatsApp na tuanze.</p></div>
+  <a class="contact-card" href="https://wa.me/255768384919?text=Habari%20JEFF%20ELECTRONICS%2C%20ninaulizia%20bidhaa." target="_blank"><span>WHATSAPP</span><strong>0768 384 919</strong><small>Bonyeza kuanza mazungumzo →</small></a>
+</section>
 </main>
-<footer>© <span id="year"></span> JEFF ELECTRONICS • China Ndogo</footer>
-<a class="float-wa" href="https://wa.me/255768384919" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+
+<footer><div class="brand"><span class="brand-mark">J</span><span><b>JEFF</b><small>ELECTRONICS</small></span></div><p>© 2026 JEFF ELECTRONICS — China Ndogo, Tanzania.</p><a href="https://wa.me/255768384919" target="_blank">WhatsApp ↗</a></footer>
+
+<div class="floating-wa"><a href="https://wa.me/255768384919?text=Habari%20JEFF%20ELECTRONICS" target="_blank">✆</a></div>
+<div class="modal" id="modal" aria-hidden="true"><div class="modal-backdrop"></div><div class="modal-card"><button id="closeModal">×</button><div id="modalBody"></div></div></div>
 <script src="script.js"></script>
 </body>
 </html>

@@ -1,72 +1,14 @@
-
-const DEFAULT_HEROES = [
-  {
-    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1800&q=85",
-    name: "Simu & Tablets"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1505740420928-5e560a06d30e?auto=format&fit=crop&w=1800&q=85",
-    name: "Headphones & Audio"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=1800&q=85",
-    name: "Accessories"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1800&q=85",
-    name: "Smart Watches"
-  }
-];
-
-function buildHero() {
-  const hero = document.getElementById('heroSlider');
-  hero.innerHTML = DEFAULT_HEROES.map((p,i) =>
-    `<div class="slide ${i===0?'active':''}" style="--bg:url('${p.image}')"></div>`
-  ).join('');
-  slides=[...hero.querySelectorAll('.slide')];
-  const dots=document.getElementById('dots');
-  dots.innerHTML=slides.map((_,i)=>`<button class="dot ${i===0?'active':''}" onclick="goToSlide(${i})" aria-label="Slide ${i+1}"></button>`).join('');
-  currentSlide=0;
-  updateSlideLabel(DEFAULT_HEROES);
-  if(slides.length>1) autoTimer=setInterval(nextSlide,5000);
-}
-
-let slides=[];
-let currentSlide=0;
-let autoTimer;
-
-function productTitle(name){
-  return name.replace(/\s+/g,' ').trim() || 'Bidhaa';
-}
-
-function buildProducts(){
-  const items=Array.isArray(window.JEFF_PRODUCTS)?window.JEFF_PRODUCTS:[];
-  const grid=document.getElementById('productGrid');
-  if(!items.length){
-    grid.innerHTML='<div class="empty-products"><b>Hakuna picha za bidhaa bado.</b><p>Weka picha kwenye JEFF PRODUCTS kisha endesha UPDATE_PRODUCTS.bat.</p></div>';
-  } else {
-    grid.innerHTML=items.map((p,i)=>`<article class="product-card"><img src="${p.image}" alt="${productTitle(p.name)}" loading="lazy"><div><span>Jeff Electronics</span><h3>${productTitle(p.name)}</h3><a href="https://wa.me/255768384919?text=${encodeURIComponent('Habari Jeff Electronics, naulizia bidhaa: '+productTitle(p.name))}" target="_blank">Ulizia WhatsApp →</a></div></article>`).join('');
-  }
-}
-
-function updateSlideLabel(items){
-  const title=document.getElementById('slideTitle');
-  const no=document.getElementById('slideNo');
-  if(!items.length) return;
-  title.textContent=productTitle(items[currentSlide]?.name || items[0].name);
-  no.textContent=String(currentSlide+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0');
-}
-function showSlide(n){
-  if(!slides.length)return;
-  currentSlide=(n+slides.length)%slides.length;
-  slides.forEach((s,i)=>s.classList.toggle('active',i===currentSlide));
-  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===currentSlide));
-  const items=(window.JEFF_PRODUCTS||[]).slice(0,6); updateSlideLabel(items);
-}
-function nextSlide(){showSlide(currentSlide+1)}
-function prevSlide(){showSlide(currentSlide-1)}
-function goToSlide(n){showSlide(n); clearInterval(autoTimer); if(slides.length>1)autoTimer=setInterval(nextSlide,5000)}
-function toggleMenu(){document.getElementById('navMenu').classList.toggle('open')}
-document.getElementById('year').textContent=new Date().getFullYear();
-buildProducts();
-buildHero();
+const OWNER='himumidmohamedi-cmd', REPO='jeff-electronics', BRANCH='main';
+const API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/products?ref=${BRANCH}`;
+const RAW=`https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/products/`;
+const grid=document.getElementById('productGrid'), heroGrid=document.getElementById('heroGrid'), status=document.getElementById('status'), search=document.getElementById('search'), chips=document.getElementById('chips'), loadMore=document.getElementById('loadMore'), count=document.getElementById('count');
+let all=[], filtered=[], shown=0, category='Zote';
+const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function nice(name){return name.replace(/\.[^.]+$/,'').replace(/WhatsApp Image/gi,'').replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim()||'JEFF Electronics';}
+function cat(name){const n=name.toLowerCase(); if(/phone|iphone|samsung|tecno|infinix|redmi|oppo|vivo|mobile/.test(n))return'Simu'; if(/watch|smartwatch|band/.test(n))return'Smart Watch'; if(/head|ear|airpod|speaker|audio|sound/.test(n))return'Audio'; if(/charg|cable|usb|adapter|power|battery/.test(n))return'Chargers'; if(/case|cover|glass|screen|holder|stand/.test(n))return'Accessories'; return'Electronics';}
+function render(){grid.innerHTML='';const q=search.value.toLowerCase().trim();filtered=all.filter(x=>(category==='Zote'||x.category===category)&&(!q||x.name.toLowerCase().includes(q)||x.category.toLowerCase().includes(q)));shown=Math.min(12,filtered.length);draw();status.textContent=filtered.length?`${filtered.length} bidhaa zimepatikana`:'Hakuna bidhaa inayolingana na utafutaji.';loadMore.hidden=shown>=filtered.length;}
+function draw(){grid.innerHTML=filtered.slice(0,shown).map(x=>`<article class="product"><img loading="lazy" src="${x.url}" alt="${esc(x.name)}" onerror="this.parentElement.style.display='none'"><div class="product-body"><div class="product-name" title="${esc(x.name)}">${esc(x.name)}</div><div class="product-meta">${esc(x.category)}</div><div class="product-actions"><a class="small-btn" href="${x.url}" target="_blank">Tazama</a><a class="small-btn wa" href="https://wa.me/255768384919?text=${encodeURIComponent('Habari JEFF ELECTRONICS, naulizia '+x.name)}" target="_blank">WhatsApp</a></div></div></article>`).join('');}
+function makeChips(){const cats=['Zote',...new Set(all.map(x=>x.category))];chips.innerHTML=cats.map(c=>`<button class="chip ${c==='Zote'?'active':''}" data-cat="${c}">${c}</button>`).join('');chips.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{category=b.dataset.cat;chips.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');render();});}
+async function load(){try{const r=await fetch(API,{headers:{Accept:'application/vnd.github+json'}});if(!r.ok)throw new Error('API '+r.status);const files=await r.json();all=files.filter(f=>f.type==='file'&&/\.(jpe?g|png|webp|gif)$/i.test(f.name)).map(f=>({name:nice(f.name),category:cat(f.name),url:RAW+encodeURIComponent(f.name).replace(/%2F/g,'/')}));count.textContent=all.length;makeChips();render();const hero=all.slice(0,10);heroGrid.innerHTML=hero.map(x=>`<img src="${x.url}" alt="" loading="lazy">`).join('');if(!all.length)status.textContent='Hakuna picha ndani ya products/.';}catch(e){status.innerHTML='Imeshindikana kusoma bidhaa moja kwa moja. Hakikisha repository ni Public na folder <b>products</b> lipo.';console.error(e)}}
+search.addEventListener('input',render);loadMore.onclick=()=>{shown=Math.min(shown+12,filtered.length);draw();loadMore.hidden=shown>=filtered.length};document.getElementById('year').textContent=new Date().getFullYear();document.getElementById('menuBtn').onclick=()=>document.getElementById('nav').classList.toggle('open');
+load();
